@@ -11,13 +11,12 @@ const DiagnosticTool = () => {
     const [gaugeData, setGaugeData] = useState([])
     const [areaData, setAreaData] = useState([])
     const [selectedChart, setSelectedChart] = useState(0)
-    const [prevSelection, setPrevSelection] = useState(0)
     const [metrics, setMetrics] = useState(0)
     const handleCardOnClick = (idx) => {
-        setSelectedChart(prevState => {
-            setPrevSelection(prevState);
-            return idx
-        })
+        setSelectedChart(idx)
+    }
+    const handleMetricsChange = (idx)=>{
+        setMetrics(idx)
     }
     useEffect(() => {
         //api calls through axios or fetch can be done instead
@@ -52,11 +51,11 @@ const DiagnosticTool = () => {
                             <h2>{Object.keys(areaData)[selectedChart]} Trend</h2>
                             <RadioField>
                                 {timePeriod.map((p, i) =>
-                                    <RadioButton key={i} active={metrics === i} onClick={() => setMetrics(i)}>{p}</RadioButton>
+                                    <RadioButton key={i} active={metrics === i} onClick={() => handleMetricsChange(i)}>{p}</RadioButton>
                                 )}
                             </RadioField>
                         </ChartHeader>
-                        <AreaChart data={areaData[Object.keys(areaData)[selectedChart]]} prevData ={areaData[Object.keys(areaData)[prevSelection]]}/>
+                        <AreaChart data={areaData[Object.keys(areaData)[selectedChart]]} />
                     </div>
                 </ContentSection>
             </ContentField>

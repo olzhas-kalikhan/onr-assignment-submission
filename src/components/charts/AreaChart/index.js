@@ -125,7 +125,7 @@ const AreaChart = ({ data = [] }) => {
             .text(function (d) { return d.score + '%' })
     }
     useEffect(addSVG)
-  useEffect(drawAreaChart)
+    useEffect(drawAreaChart)
     return <div id={`areachart`} style={{ marginTop: '20%' }} />
 }
 export default AreaChart

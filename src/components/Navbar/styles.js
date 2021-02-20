@@ -11,7 +11,7 @@ const Title = styled.h2`
     justify-self: flex-start;
     color:white;
     margin: 0 50px;
-    width: 60%;
+    width: 58%;
 `
 const Menu = styled.ul`
     display:flex;

@@ -3,8 +3,8 @@ const CardField = styled.div`
     display:flex;
     flex-direction:column;
     justify-content: center;
-    width: 160px;
-    height: 230px;
+    width: 140px;
+    height: 200px;
     border-radius: 10px;
     margin: 5px;
     padding: 5px;

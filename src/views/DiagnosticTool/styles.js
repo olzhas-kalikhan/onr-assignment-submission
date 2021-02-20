@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 const Container = styled.div`
-    height: 90%;
+    height: 40%;
     display: flex;
     flex-direction: column;
 `
@@ -22,12 +22,12 @@ const ContentField = styled.div`
     width: 100%;
 `
 const ContentSection = styled.div`
-    width: 38%;
+    width: 40%;
 `
 
 const CardArea = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 `
 const ChartArea = styled.div`   
@@ -54,7 +54,7 @@ const RadioField = styled.div`
     align-items: center;
 `
 const RadioButton = styled.button`
-    width: 60px;
+    width: 55px;
     height: 40px;
     margin: 0 3px;
     font-weight:500;
