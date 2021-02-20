@@ -12,7 +12,7 @@ const Sidebar = () => {
     return (
         <SidebarArea>
             <List>
-                {listIcons.map(Icon => <ListItem><Icon /></ListItem>)}
+                {listIcons.map((Icon, i) => <ListItem key={'sideBarListItem' + i}><Icon /></ListItem>)}
             </List>
         </SidebarArea>
     )

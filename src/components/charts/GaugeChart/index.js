@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import * as d3 from 'd3';
 import styled from 'styled-components'
-import { act } from '@testing-library/react';
 
 const SvgContainer = styled.div`
     display: flex;
@@ -10,7 +9,7 @@ const SvgContainer = styled.div`
 `
 
 function GaugeChart({ data, outerRadius, innerRadius, idx, active }) {
-    const [chartId] = useState(`pie-container-${idx}`)
+    const chartId = `pie-container-${idx}`
     const margin = {
         top: 40, right: 0, bottom: 0, left: 0,
     };
@@ -20,26 +19,10 @@ function GaugeChart({ data, outerRadius, innerRadius, idx, active }) {
         .domain([0, 1])
         .range([active ? '#00AEEF' : '#0071C5', '#D7D7D7'])
 
-    useEffect(() => {
-        drawChart()
-    }, [data])
-
-    useEffect(() => {
-        const sp = d3.select(`#${chartId}`)
-            .select('svg').select('path')
-            .style('fill', (_, i) => colorScale(i))
-        console.log(sp)
-    }, [active])
-
-
     const drawChart = () => {
-
         d3.select(`#${chartId}`)
             .select('svg')
             .remove()
-
-
-
         const svg = d3
             .select(`#${chartId}`)
             .append('svg')
@@ -79,6 +62,15 @@ function GaugeChart({ data, outerRadius, innerRadius, idx, active }) {
             .text(`${data.score}%`);
 
     }
+    useEffect(() => {
+        drawChart()
+    }, [data])
+
+    useEffect(() => {
+        d3.select(`#${chartId}`)
+            .select('svg').select('path')
+            .style('fill', (_, i) => colorScale(i))
+    }, [active, chartId, colorScale])
 
     return <SvgContainer id={chartId} />
 

@@ -11,7 +11,7 @@ const Navbar = () => {
             <Title> Diagnostic Tool </Title>
             <Log>Logged in as General User </Log>
             <Menu>
-                {menuIcons.map(Icon => <MenuItem><Icon /></MenuItem>)}
+                {menuIcons.map((Icon, i) => <MenuItem key={'navBarMenuItem' + i}><Icon /></MenuItem>)}
             </Menu>
         </NavbarArea>
     )

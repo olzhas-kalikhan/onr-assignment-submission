@@ -23,7 +23,7 @@ const DiagnosticTool = () => {
         //api calls through axios or fetch can be done instead
         setGaugeData(data.gaugeData)
         setAreaData(data.areaData)
-    }, [data])
+    }, [])
     return (
         <Container>
             <div>

@@ -1,13 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import * as d3 from 'd3';
 const AreaChart = ({ data = [] }) => {
-    useEffect(() => {
-        addSVG()
-    }, [])
-    useEffect(() => {
-        if (data)
-            drawAreaChart()
-    }, [data])
     const margin = { top: 50, right: 30, bottom: 40, left: 50 },
         width = 550 - margin.left - margin.right,
         height = 250 - margin.top - margin.bottom;
@@ -131,6 +124,12 @@ const AreaChart = ({ data = [] }) => {
             .attr("y", function (d) { return y(d.score) - 10 })
             .text(function (d) { return d.score + '%' })
     }
+    useEffect(() => {
+        addSVG()
+    }, [])
+    useEffect(() => {
+        drawAreaChart()
+    })
 
     return <div id={`areachart`} style={{ marginTop: '20%' }} />
 }
