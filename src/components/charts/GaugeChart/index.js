@@ -62,9 +62,7 @@ function GaugeChart({ data, outerRadius, innerRadius, idx, active }) {
             .text(`${data.score}%`);
 
     }
-    useEffect(() => {
-        drawChart()
-    }, [data])
+    useEffect(drawChart)
 
     useEffect(() => {
         d3.select(`#${chartId}`)
